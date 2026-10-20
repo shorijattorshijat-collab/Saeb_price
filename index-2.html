@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123f35">
+<title>مهاجران | قیمت روز محصولات</title>
+<style>
+:root{--green:#123f35;--mint:#eaf4ee;--lime:#c8dc8a;--ink:#18352e;--muted:#63766f}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Tahoma,Arial,sans-serif;color:var(--ink)}
+body{background:linear-gradient(120deg,rgba(7,39,31,.87),rgba(18,63,53,.67)),url('https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?auto=format&fit=crop&w=1800&q=85') center/cover fixed;display:flex;align-items:center;justify-content:center;padding:14px}
+.shell{width:min(1100px,100%);min-height:min(690px,calc(100vh - 28px));display:flex;flex-direction:column;background:rgba(250,253,250,.97);border:1px solid rgba(255,255,255,.65);border-radius:24px;overflow:hidden;box-shadow:0 22px 70px #061b17a6}
+header{background:var(--green);color:#fff;padding:16px 25px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-size:clamp(23px,4vw,34px);font-weight:bold;letter-spacing:-1px}.tag{font-size:12px;color:#d4e6d8;margin-top:5px}
+.pill{border:1px solid #ffffff66;border-radius:99px;padding:8px 12px;font-size:12px;white-space:nowrap}
+main{display:grid;grid-template-columns:1fr 1.05fr;gap:20px;padding:22px;flex:1;align-items:center}
+.intro h1{font-size:clamp(22px,3vw,31px);line-height:1.5;margin:0 0 8px}.intro p{color:var(--muted);line-height:1.9;font-size:14px;margin:0}
+.badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}.badge{background:var(--mint);border:1px solid #d7e7db;border-radius:99px;padding:7px 10px;font-size:11px}
+.panel{background:#fff;border:1px solid #e0e9e2;border-radius:18px;padding:15px;box-shadow:0 8px 24px #163e3010}
+.panel h2{font-size:17px;margin:0 0 11px;display:flex;justify-content:space-between;align-items:center}.date{font-size:11px;color:var(--muted);font-weight:normal}
+table{width:100%;border-collapse:collapse}th{text-align:right;background:#f0f6f1;color:#52685c;font-size:11px;padding:10px}td{padding:12px 10px;border-bottom:1px solid #edf1ed;font-size:13px}tr:last-child td{border-bottom:0}.price{font-weight:bold;color:#17604b;white-space:nowrap}
+footer{background:#f0f6f1;border-top:1px solid #dce8df;padding:13px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:12px;line-height:1.8}
+.contact{font-weight:bold;color:var(--green)}.foottext{color:#53675d;text-align:left}
+.adminbtn{background:transparent;color:#e9f3eb;border:1px solid #ffffff70;border-radius:9px;padding:8px 10px;cursor:pointer;font-family:inherit}
+button,input,textarea{font:inherit}button{cursor:pointer}
+#adminView{display:none;padding:20px;overflow:auto}#adminView h2{margin-top:0}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.field{display:flex;flex-direction:column;gap:5px;font-size:12px}.field input,.field textarea{border:1px solid #cad9ce;border-radius:8px;padding:10px;background:#fff;color:#173b30;width:100%}.field textarea{min-height:65px;resize:vertical}
+.products-editor{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}.product-edit{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#f3f7f3;padding:8px;border-radius:8px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.primary,.secondary,.danger{border:0;border-radius:8px;padding:10px 14px}.primary{background:var(--green);color:white}.secondary{background:#e5eee7;color:var(--green)}.danger{background:#fae9e7;color:#8c2f25}.loginbox{max-width:400px;margin:25px auto;background:#fff;padding:20px;border:1px solid #dce8df;border-radius:15px}.loginbox h2{margin-top:0}.notice{font-size:12px;line-height:1.7;color:#7a4c1e;margin-top:12px}.hidden{display:none!important}
+@media(max-width:700px){body{padding:8px}.shell{min-height:calc(100vh - 16px);border-radius:16px}header{padding:13px 15px}main{grid-template-columns:1fr;gap:13px;padding:15px}.intro p{font-size:12px}.badges{margin-top:9px}.panel{padding:10px}td{padding:9px 7px;font-size:12px}footer{padding:10px 13px;align-items:flex-start}.foottext{max-width:48%}.formgrid,.products-editor{grid-template-columns:1fr}#adminView{padding:13px}}
+@media(max-height:700px) and (min-width:701px){.shell{min-height:0}main{padding:15px}footer{padding:9px 20px}.intro p{line-height:1.6}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header><div><div class="brand" id="brandTitle">مهاجران</div><div class="tag">تازگی، کیفیت و قیمت روز</div></div><div style="display:flex;align-items:center;gap:10px"><span class="pill">فروش مستقیم محصولات</span><button class="adminbtn" id="adminBtn">مدیریت</button></div></header>
+<section id="publicView">
+<main>
+<div class="intro"><h1 id="headline">طعم تازه و کیفیتی که به آن اعتماد می‌کنید</h1><p id="description">قیمت روز محصولات را اینجا ببینید. برای دریافت اطلاعات بیشتر و ثبت سفارش، با ما تماس بگیرید.</p><div class="badges"><span class="badge">🥒 محصولات تازه</span><span class="badge">✓ قیمت شفاف</span><span class="badge">📦 سفارش آسان</span></div></div>
+<div class="panel"><h2>لیست قیمت روز <span class="date" id="updatedAt">آخرین به‌روزرسانی: —</span></h2><table><thead><tr><th>محصول</th><th>قیمت</th></tr></thead><tbody id="priceRows"></tbody></table></div>
+</main>
+<footer><div>☎ <span class="contact" id="phoneText">شماره تماس: بعداً درج می‌شود</span></div><div class="foottext" id="footerText">برای سفارش و اطلاع از موجودی، تماس بگیرید.</div></footer>
+</section>
+<section id="adminView">
+<div id="loginArea" class="loginbox"><h2>ورود مدیر</h2><div class="field"><label for="username">نام کاربری</label><input id="username" autocomplete="username" placeholder="نام کاربری"></div><div class="field" style="margin-top:10px"><label for="password">رمز عبور</label><input id="password" type="password" autocomplete="current-password" placeholder="رمز عبور"></div><div class="actions"><button class="primary" id="loginBtn">ورود</button><button class="secondary" id="backBtn">بازگشت به سایت</button></div><p class="notice">این نسخه آزمایشی، اطلاعات را فقط در همین مرورگر ذخیره می‌کند؛ برای انتشار عمومی، ورود امن و ذخیره‌سازی آنلاین باید به سرویس پشتیبان متصل شود.</p></div>
+<div id="editorArea" class="hidden"><h2>مدیریت سایت</h2><div class="formgrid">
+<div class="field"><label>نام برند</label><input id="editBrand"></div>
+<div class="field"><label>شماره تماس</label><input id="editPhone" placeholder="شماره سفارش"></div>
+<div class="field"><label>عنوان اصلی</label><input id="editHeadline"></div>
+<div class="field"><label>متن پایین صفحه</label><input id="editFooter"></div>
+<div class="field" style="grid-column:1/-1"><label>توضیحات کوتاه</label><textarea id="editDescription"></textarea></div>
+</div><h3>محصولات و قیمت‌ها</h3><div class="products-editor" id="productEditor"></div><div class="actions"><button class="secondary" id="addProduct">افزودن محصول</button><button class="primary" id="saveBtn">ذخیره تغییرات</button><button class="danger" id="logoutBtn">خروج از مدیریت</button><button class="secondary" id="publicBtn">نمایش سایت</button></div><p class="notice">تغییرات در همین دستگاه ذخیره می‌شود و به دستگاه مشتریان منتقل نمی‌شود تا زمانی که ذخیره‌سازی آنلاین راه‌اندازی شود.</p></div>
+</section>
+</div>
+<script>
+const DEFAULT={brand:"مهاجران",headline:"طعم تازه و کیفیتی که به آن اعتماد می‌کنید",description:"قیمت روز محصولات را اینجا ببینید. برای دریافت اطلاعات بیشتر و ثبت سفارش، با ما تماس بگیرید.",phone:"شماره تماس: بعداً درج می‌شود",footer:"برای سفارش و اطلاع از موجودی، تماس بگیرید.",products:[{name:"خیارشور",price:"تماس بگیرید"},{name:"ترشی مخلوط",price:"تماس بگیرید"},{name:"لیته بندری",price:"تماس بگیرید"},{name:"گل‌کلم شور",price:"تماس بگیرید"}]};
+let data;try{data=JSON.parse(localStorage.getItem("mohajeran_site_data"))||structuredClone(DEFAULT)}catch(e){data=JSON.parse(JSON.stringify(DEFAULT))}
+const $=id=>document.getElementById(id);
+function render(){ $("brandTitle").textContent=data.brand;$("headline").textContent=data.headline;$("description").textContent=data.description;$("phoneText").textContent=data.phone;$("footerText").textContent=data.footer;$("updatedAt").textContent="آخرین به‌روزرسانی: "+(localStorage.getItem("mohajeran_updated")||"هنوز ثبت نشده");$("priceRows").innerHTML="";data.products.forEach(p=>{let tr=document.createElement("tr"),a=document.createElement("td"),b=document.createElement("td");a.textContent=p.name;b.textContent=p.price;b.className="price";tr.append(a,b);$("priceRows").append(tr)})}
+function showAdmin(){ $("publicView").style.display="none";$("adminView").style.display="block";$("loginArea").classList.remove("hidden");$("editorArea").classList.add("hidden")}
+function showPublic(){ $("adminView").style.display="none";$("publicView").style.display="block"}
+function editor(){ $("editBrand").value=data.brand;$("editPhone").value=data.phone;$("editHeadline").value=data.headline;$("editFooter").value=data.footer;$("editDescription").value=data.description;$("productEditor").innerHTML="";data.products.forEach((p,i)=>{const div=document.createElement("div");div.className="product-edit";div.innerHTML='<input aria-label="نام محصول" placeholder="نام محصول"><input aria-label="قیمت" placeholder="قیمت">';div.children[0].value=p.name;div.children[1].value=p.price;const del=document.createElement("button");del.className="danger";del.textContent="حذف محصول";del.style.gridColumn="1/-1";del.onclick=()=>{data.products.splice(i,1);editor()};div.append(del);$("productEditor").append(div)})}
+$("adminBtn").onclick=showAdmin;$("backBtn").onclick=showPublic;$("publicBtn").onclick=()=>{showPublic();render()};$("loginBtn").onclick=()=>{if($("username").value==="Mohajeran"&&$("password").value==="mohajeran1828"){$("loginArea").classList.add("hidden");$("editorArea").classList.remove("hidden");editor()}else alert("نام کاربری یا رمز عبور نادرست است.")};
+$("addProduct").onclick=()=>{data.products.push({name:"محصول جدید",price:"قیمت را وارد کنید"});editor()};
+$("saveBtn").onclick=()=>{data.brand=$("editBrand").value.trim()||"مهاجران";data.phone=$("editPhone").value.trim();data.headline=$("editHeadline").value.trim();data.footer=$("editFooter").value.trim();data.description=$("editDescription").value.trim();data.products=[...$("productEditor").children].map(d=>({name:d.children[0].value.trim(),price:d.children[1].value.trim()})).filter(p=>p.name);localStorage.setItem("mohajeran_site_data",JSON.stringify(data));localStorage.setItem("mohajeran_updated",new Date().toLocaleDateString("fa-IR"));render();alert("تغییرات در همین مرورگر ذخیره شد.")};
+$("logoutBtn").onclick=()=>{showPublic();$("username").value="";$("password").value=""};render();
+</script>
+</body></html>
